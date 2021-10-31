@@ -10,7 +10,7 @@ public class LottoRandomNumber {
     private static final int MIN_LOTTO_NUMBER_LENGTH_INDEX = 0;
 
     private static final List<Integer> lottoNumbersStorage = new ArrayList<>();
-    //Set을 활용?
+    //Set으로 바꾸기
 
     static {
         for (int i = MIN_LOTTO_TOTAL_NUMBER ; i < MAX_LOTTO_TOTAL_NUMBER; i++) {
