@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class LottoRandomNumber {
 
@@ -9,23 +7,26 @@ public class LottoRandomNumber {
     private static final int MAX_LOTTO_NUMBER_LENGTH_INDEX = 5;
     private static final int MIN_LOTTO_NUMBER_LENGTH_INDEX = 0;
 
-    private static final List<Integer> lottoNumbersStorage = new ArrayList<>();
-    //Set으로 바꾸기
+    private static final Set<Integer> LOTTO_NUMBERS_STORAGE = new HashSet<>();
 
     static {
-        for (int i = MIN_LOTTO_TOTAL_NUMBER ; i < MAX_LOTTO_TOTAL_NUMBER; i++) {
-            lottoNumbersStorage.add(i);
+        for (int i = MIN_LOTTO_TOTAL_NUMBER; i < MAX_LOTTO_TOTAL_NUMBER; i++) {
+            LOTTO_NUMBERS_STORAGE.add(i);
         }
     }
 
-    public LottoRandomNumber() {
-        lottoRandomNumberCreate();
+    public LottoRandomNumber(long lottoCount) {
+        createLottoRandomNumber(lottoCount);
     }
 
-    private void lottoRandomNumberCreate() {
-        Collections.shuffle(lottoNumbersStorage);
-        List<Integer> lottoNumbers = new ArrayList<>(lottoNumbersStorage.subList(
-                MIN_LOTTO_NUMBER_LENGTH_INDEX, MAX_LOTTO_NUMBER_LENGTH_INDEX));
-        Collections.sort(lottoNumbers);
+    private void createLottoRandomNumber(long lottoCount) {
+        List<Integer> lottoNumbers = new ArrayList<>(LOTTO_NUMBERS_STORAGE);
+        while (lottoCount > 0) {
+            Collections.shuffle(lottoNumbers);
+            Collections.sort(lottoNumbers);
+            Output.printLottoNumber(new ArrayList<>(lottoNumbers.subList(
+                    MIN_LOTTO_NUMBER_LENGTH_INDEX, MAX_LOTTO_NUMBER_LENGTH_INDEX)));
+            lottoCount--;
+        }
     }
 }
