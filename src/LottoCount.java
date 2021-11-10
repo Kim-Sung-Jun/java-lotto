@@ -1,6 +1,6 @@
 public class LottoCount {
 
-    private long lottoCount = 0;
+    private final long lottoCount;
 
     public LottoCount(Money inputMoney) {
         lottoCount = inputMoney.calculationLottoCount();

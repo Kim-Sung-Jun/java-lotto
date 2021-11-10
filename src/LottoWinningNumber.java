@@ -13,7 +13,11 @@ public class LottoWinningNumber {
 
     private List<Integer> createLottoWinningNumbers(String lottoWinningNumber) {
         List<Integer> winningNumbers = new ArrayList<>();
-        String[] lottoWinningNumbers = lottoWinningNumber.trim().split(",");
+//        lottoWinningNumber = lottoWinningNumber.trim().replace(" ", "");
+        String[] lottoWinningNumbers = lottoWinningNumber.split(","); //여기서 막힘
+        for (String str : lottoWinningNumbers) {
+            System.out.println(str);
+        }
         validateLength(lottoWinningNumbers);
         for (String number : lottoWinningNumbers) {
             validateLottoWinningNumberType(number, winningNumbers);
