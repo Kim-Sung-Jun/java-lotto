@@ -12,12 +12,13 @@ public class LottoManager {
     }
 
     public void calculation(LottoCount lottoCount) {
-        List<LottoNumber> lottoNumbers = new ArrayList<>();
+        List<LottoNumber> Numbers = new ArrayList<>();
         LottoNumberCreate lottoNumberCreate = new LottoNumberCreate();
         for (int i = 0; i < lottoCount.getLottoCount(); i++) {
             LottoNumber lottoNumber = new LottoNumber(lottoNumberCreate.createLottoRandomNumber());
             Output.printLottoNumber(lottoNumber.getLottoRandomNumbers());
-            lottoNumbers.add(lottoNumber);
+            Numbers.add(lottoNumber);
         }
+        LottoNumbers lottoNumbers = new LottoNumbers(Numbers);
     }
 }
