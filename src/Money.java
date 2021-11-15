@@ -2,7 +2,7 @@ public class Money {
 
     private static final int LOTTO_PRICE = 1000;
 
-    private long money = 0;
+    private long amount = 0;
 
     public Money(String money) {
         validate(money);
@@ -20,8 +20,8 @@ public class Money {
 
     private boolean isNumber(String money) { //타입검사
         try {
-            this.money = Long.parseLong(money);
-            if (this.money < 1000) {
+            this.amount = Long.parseLong(money);
+            if (this.amount < 1000) {
                 validateMoney();
             }
             return true;
@@ -35,6 +35,6 @@ public class Money {
     }
 
     public long calculationLottoCount() {
-        return money / LOTTO_PRICE;
+        return amount / LOTTO_PRICE;
     }
 }

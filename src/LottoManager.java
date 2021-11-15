@@ -3,7 +3,7 @@ import java.util.List;
 
 public class LottoManager {
 
-    public void Proceed(Money money) {
+    public void proceed(Money money) {
         LottoCount lottoCount = new LottoCount(money);
         Output.printLottoCount(lottoCount);
         calculation(lottoCount);
@@ -12,13 +12,13 @@ public class LottoManager {
     }
 
     public void calculation(LottoCount lottoCount) {
-        List<LottoNumber> Numbers = new ArrayList<>();
-        LottoNumberCreate lottoNumberCreate = new LottoNumberCreate();
+        List<LottoNumber> numbers = new ArrayList<>();
+        LottoNumberFactory lottoNumberCreate = new LottoNumberFactory();
         for (int i = 0; i < lottoCount.getLottoCount(); i++) {
             LottoNumber lottoNumber = new LottoNumber(lottoNumberCreate.createLottoRandomNumber());
             Output.printLottoNumber(lottoNumber.getLottoRandomNumbers());
-            Numbers.add(lottoNumber);
+            numbers.add(lottoNumber);
         }
-        LottoNumbers lottoNumbers = new LottoNumbers(Numbers);
+        LottoNumbers lottoNumbers = new LottoNumbers(numbers);
     }
 }

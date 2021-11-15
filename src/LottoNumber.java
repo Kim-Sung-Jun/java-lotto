@@ -2,13 +2,13 @@ import java.util.*;
 
 public class LottoNumber {
 
-    private List<Integer> lottoRandomNumbers;
+    private final List<Integer> lottoRandomNumber;
 
-    public LottoNumber(List<Integer> lottoRandomNumbers) {
-        this.lottoRandomNumbers = lottoRandomNumbers;
+    public LottoNumber(List<Integer> lottoRandomNumber) {
+        this.lottoRandomNumber = new ArrayList<>(lottoRandomNumber);
     }
 
     public List<Integer> getLottoRandomNumbers() {
-        return lottoRandomNumbers = Collections.unmodifiableList(lottoRandomNumbers);
+        return Collections.unmodifiableList(lottoRandomNumber);
     }
 }

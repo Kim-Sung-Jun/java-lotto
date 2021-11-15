@@ -1,23 +1,22 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class LottoWinningNumber {
+public class LottoWinningNumber extends LottoNumber {
 
     private static final int LENGTH_DELIMITER = 6;
 
     private final List<Integer> lottoWinningNumbers;
 
-    public LottoWinningNumber(String lottoWinningNumber) {
-        this.lottoWinningNumbers = createLottoWinningNumbers(lottoWinningNumber);
+    public LottoWinningNumber(String lottoWinningNumber, BonusNumber bonusNumber) {
+        super(lottoRandomNumber);
+        this.lottoWinningNumbers = new ArrayList<>(createLottoWinningNumbers(lottoWinningNumber));
     }
 
     private List<Integer> createLottoWinningNumbers(String lottoWinningNumber) {
         List<Integer> winningNumbers = new ArrayList<>();
-//        lottoWinningNumber = lottoWinningNumber.trim().replace(" ", "");
-        String[] lottoWinningNumbers = lottoWinningNumber.split(","); //여기서 막힘
-        for (String str : lottoWinningNumbers) {
-            System.out.println(str);
-        }
+        lottoWinningNumber = lottoWinningNumber.trim().replace(" ", "");
+        String[] lottoWinningNumbers = lottoWinningNumber.split(",");
         validateLength(lottoWinningNumbers);
         for (String number : lottoWinningNumbers) {
             validateLottoWinningNumberType(number, winningNumbers);
@@ -28,7 +27,8 @@ public class LottoWinningNumber {
     private void validateLength(String[] lottoWinningNumbers) {
         if (lottoWinningNumbers.length < LENGTH_DELIMITER) {
             throw new IllegalArgumentException("숫자가 모자릅니다.");
-        } else if (lottoWinningNumbers.length > LENGTH_DELIMITER) {
+        }
+        if (lottoWinningNumbers.length > LENGTH_DELIMITER) {
             throw new IllegalArgumentException("숫자가 너무 많습니다.");
         }
     }
@@ -42,6 +42,6 @@ public class LottoWinningNumber {
     }
 
     public List<Integer> getLottoWinningNumbers() {
-        return lottoWinningNumbers;
+        return Collections.unmodifiableList(lottoWinningNumbers);
     }
 }
