@@ -9,7 +9,7 @@ public class LottoWinningNumber extends LottoNumber {
     private final List<Integer> lottoWinningNumbers;
 
     public LottoWinningNumber(String lottoWinningNumber, BonusNumber bonusNumber) {
-        super(lottoRandomNumber);
+        super(lottoRandomNumber); //상속 여기 다시 하는중
         this.lottoWinningNumbers = new ArrayList<>(createLottoWinningNumbers(lottoWinningNumber));
     }
 
