@@ -7,8 +7,9 @@ public class LottoManager {
         LottoCount lottoCount = new LottoCount(money);
         Output.printLottoCount(lottoCount);
         calculation(lottoCount);
-        LottoWinningNumber lottoWinningNumber = new LottoWinningNumber(Input.inputLottoWinningNumber());
+        String winningNumber = Input.inputLottoWinningNumber();
         BonusNumber bonusNumber = new BonusNumber(Input.inputBonusNumber());
+        LottoWinningNumber lottoWinningNumber = new LottoWinningNumber(winningNumber, bonusNumber);
     }
 
     public void calculation(LottoCount lottoCount) {
