@@ -6,5 +6,4 @@ public class LottoDriver {
         lottoManager.proceed(money);
 
     }
-
 }

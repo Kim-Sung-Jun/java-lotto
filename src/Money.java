@@ -4,24 +4,24 @@ public class Money {
 
     private long amount = 0;
 
-    public Money(String money) {
-        validate(money);
+    public Money(String amount) {
+        validate(amount);
     }
 
-    private void validate(String money) {
-        validateInputMoneyType(money);
+    private void validate(String amount) {
+        validateInputMoneyType(amount);
     }
 
-    private void validateInputMoneyType(String money) { //타입 불일치시 예외발생
-        if (!isNumber(money)) {
+    private void validateInputMoneyType(String amount) { //타입 불일치시 예외발생
+        if (!isNumber(amount)) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
         }
     }
 
-    private boolean isNumber(String money) { //타입검사
+    private boolean isNumber(String amount) { //타입검사
         try {
-            this.amount = Long.parseLong(money);
-            if (this.amount < 1000) {
+            this.amount = Long.parseLong(amount);
+            if (this.amount < LOTTO_PRICE) {
                 validateMoney();
             }
             return true;
