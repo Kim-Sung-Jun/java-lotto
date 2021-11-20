@@ -3,10 +3,10 @@ public class BonusNumber {
     private final int number;
 
     public BonusNumber(String bonusNumber) {
-        this.number = validateBonusNumberType(bonusNumber);
+        this.number = validateBonusNumberType(bonusNumber); //여기서 벨리데이트로 보내고 디스로 초기화가 더 좋음
     }
 
-    private int validateBonusNumberType(String bonusNumber) {
+    private int validateBonusNumberType(String bonusNumber) { //벨리데이트가 2가지를 검증하는중, 분리필요
         try {
             int number = Integer.parseInt(bonusNumber);
             validateNumberSize(number);

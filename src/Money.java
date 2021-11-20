@@ -4,7 +4,7 @@ public class Money {
 
     private long amount = 0;
 
-    public Money(String amount) {
+    public Money(String amount) { //생성자는 항상 값을 초기화, 검증만 해준다
         validate(amount);
     }
 
