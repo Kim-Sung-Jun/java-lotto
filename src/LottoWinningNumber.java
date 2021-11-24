@@ -15,6 +15,7 @@ public class LottoWinningNumber extends LottoNumber {
 
     public void 비교(LottoWinningNumber lottoWinningNumber, LottoNumber lottoNumber) { //이건 값을 보낸게 아님님
        //이 메소드가 계산기로 가야함
+
     }
 
 }
