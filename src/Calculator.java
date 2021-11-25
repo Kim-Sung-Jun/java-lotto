@@ -1,6 +1,8 @@
+import java.util.Map;
+
 public class Calculator {
 
-    private int count = 0;
+    private final Map<Integer, Integer> ranking;
 
     public Calculator() {
 
