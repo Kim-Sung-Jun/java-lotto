@@ -10,6 +10,12 @@ public class LottoNumbers {
         this.numbers = new ArrayList<>(lottoNumbers);
     }
 
+    public int qweqwe(LottoWinningNumber lottoWinningNumber) {
+        for (LottoNumber number : numbers) {
+            lottoWinningNumber.compare(number);
+        }
+    }
+
     public List<LottoNumber> getNumbers() {
         return Collections.unmodifiableList(numbers);
     }

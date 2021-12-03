@@ -14,6 +14,10 @@ public class Output {
         System.out.println(lottoCount.getLottoCount() + "개를 구매했습니다.");
     }
 
+    public static void printRanking(Ranking ranking) {
+        System.out.println(ranking.getMatchCount()+ "개 맞았고 당첨금액은" + ranking.getPrizeMoney() + "입니다.");
+    }
+
     public static void printExceptionMsg(String msg) {
         System.out.println(msg);
     }

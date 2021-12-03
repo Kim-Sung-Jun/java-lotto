@@ -24,6 +24,29 @@ public class LottoNumber {
         }
     }
 
+    public void compare(LottoNumber lottoNumber, BonusNumber bonusNumber) {
+        int count = 0;
+        for (int i = 0; i < lottoNumber.getLottoNumbers().size(); i++) {
+            count = compareLottoNumber(lottoNumber, i, count);
+        }
+        boolean bonusBall;
+        if (count == 5) {
+            bonusBall = compareBonusNumber(bonusNumber);
+        }
+
+    }
+
+    private int compareLottoNumber(LottoWinningNumber lottoWinningNumber, int i, int count) {
+        if (this.lottoNumbers.contains(lottoWinningNumber.getLottoNumbers().get(i))) {
+            count++;
+        }
+        return count;
+    }
+
+    private boolean compareBonusNumber(BonusNumber bonusNumber) {
+        return this.lottoNumbers.contains(bonusNumber.getNumber());
+    }
+
     public List<Integer> getLottoNumbers() {
         return Collections.unmodifiableList(lottoNumbers);
     }

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public enum Ranking {
 
     FIRST(6, 2000000000),
@@ -15,4 +17,29 @@ public enum Ranking {
         this.prizeMoney = prizeMoney;
     }
 
+    public Ranking 찾기(int matchCount) {
+        for (Ranking ranking : Ranking.values()) {
+            if (ranking.matchCount == matchCount) {
+                return ranking;
+            }
+        }
+        throw new IllegalArgumentException("찾을 수 없는 matchCount 입니다,");
+
+//        Arrays.stream(Ranking.values())
+//                .filter(ranking -> ranking.matchCount == matchCount)
+//                .findFirst()
+//                .orElseThrow(() -> new IllegalArgumentException("찾을 수 없는 matchCount 입니다,"));
+    }
+
+    public int 곱하기() {
+        return this.matchCount * this.prizeMoney;
+    }
+
+    public int getMatchCount() {
+        return matchCount;
+    }
+
+    public int getPrizeMoney() {
+        return prizeMoney;
+    }
 }

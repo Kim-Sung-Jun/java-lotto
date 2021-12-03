@@ -8,13 +8,12 @@ public class LottoManager {
         List<LottoNumber> numbers = LottoNumbersFactory.createLottoNumberByMoney(lottoCount);
         LottoNumbers lottoNumbers = new LottoNumbers(numbers);
 
-
         LottoWinningNumber lottoWinningNumber = new LottoWinningNumber(
                 WinningNumberFactory.transformWinningNumber(
                         Input.inputLottoWinningNumber()), new BonusNumber(Input.inputBonusNumber()));
 
-        Calculator calculator = new Calculator();
+        for (LottoNumber number : lottoNumbers.getNumbers()) {
 
-
+        }
     }
 }
