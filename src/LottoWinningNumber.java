@@ -10,6 +10,7 @@ public class LottoWinningNumber extends LottoNumber {
     }
 
     public BonusNumber getBonusNumber() {
+
         return bonusNumber;
     }
 
