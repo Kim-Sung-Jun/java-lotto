@@ -15,7 +15,7 @@ public class LottoWinningNumber extends LottoNumber {
     }
 
     public void 비교(LottoNumber lottoNumber) { //이건 값을 보낸게 아님님
-        super.compare(lottoNumber); //보너스넘버는 위닝이 가지고 있다
+        super.compare(lottoNumber, this.bonusNumber); //보너스넘버는 위닝이 가지고 있다
 
 
     }
