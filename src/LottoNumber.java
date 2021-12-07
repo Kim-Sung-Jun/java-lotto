@@ -36,8 +36,8 @@ public class LottoNumber {
 
     }
 
-    private int compareLottoNumber(LottoWinningNumber lottoWinningNumber, int i, int count) {
-        if (this.lottoNumbers.contains(lottoWinningNumber.getLottoNumbers().get(i))) {
+    private int compareLottoNumber(LottoNumber lottoNumber, int i, int count) {
+        if (this.lottoNumbers.contains(lottoNumber.getLottoNumbers().get(i))) {
             count++;
         }
         return count;

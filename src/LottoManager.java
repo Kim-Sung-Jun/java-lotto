@@ -12,8 +12,6 @@ public class LottoManager {
                 WinningNumberFactory.transformWinningNumber(
                         Input.inputLottoWinningNumber()), new BonusNumber(Input.inputBonusNumber()));
 
-        for (LottoNumber number : lottoNumbers.getNumbers()) {
 
-        }
     }
 }

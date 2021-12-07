@@ -12,8 +12,9 @@ public class LottoNumbers {
 
     public int qweqwe(LottoWinningNumber lottoWinningNumber) {
         for (LottoNumber number : numbers) {
-            lottoWinningNumber.compare(number);
+            lottoWinningNumber.비교(number);
         }
+        return
     }
 
     public List<LottoNumber> getNumbers() {

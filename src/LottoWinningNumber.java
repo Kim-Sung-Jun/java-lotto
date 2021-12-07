@@ -7,6 +7,7 @@ public class LottoWinningNumber extends LottoNumber {
     public LottoWinningNumber(List<Integer> lottoWinningNumber, BonusNumber bonusNumber) {
         super(lottoWinningNumber);
         this.bonusNumber = bonusNumber;
+
     }
 
     public BonusNumber getBonusNumber() {
@@ -14,9 +15,8 @@ public class LottoWinningNumber extends LottoNumber {
         return bonusNumber;
     }
 
-    public void 비교(LottoNumber lottoNumber) { //이건 값을 보낸게 아님님
+    public void 비교(LottoNumber lottoNumber) {
         super.compare(lottoNumber, this.bonusNumber); //보너스넘버는 위닝이 가지고 있다
-
 
     }
 }
