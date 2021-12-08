@@ -11,11 +11,10 @@ public class LottoWinningNumber extends LottoNumber {
     }
 
     public BonusNumber getBonusNumber() {
-
         return bonusNumber;
     }
 
-    public void 비교(LottoNumber lottoNumber) {
+    public void handOver(LottoNumber lottoNumber) { //이건 값을 보낸게 아님님
         super.compare(lottoNumber, this.bonusNumber); //보너스넘버는 위닝이 가지고 있다
 
     }

@@ -10,11 +10,10 @@ public class LottoNumbers {
         this.numbers = new ArrayList<>(lottoNumbers);
     }
 
-    public int qweqwe(LottoWinningNumber lottoWinningNumber) {
+    public void qweqwe(LottoWinningNumber lottoWinningNumber) {
         for (LottoNumber number : numbers) {
-            lottoWinningNumber.비교(number);
+            lottoWinningNumber.handOver(number);
         }
-        return
     }
 
     public List<LottoNumber> getNumbers() {
