@@ -10,7 +10,7 @@ public class LottoNumbers {
         this.numbers = new ArrayList<>(lottoNumbers);
     }
 
-    public void qweqwe(LottoWinningNumber lottoWinningNumber) {
+    public void 넘겨주다(LottoWinningNumber lottoWinningNumber) {
         for (LottoNumber number : numbers) {
             lottoWinningNumber.handOver(number);
         }
