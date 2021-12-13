@@ -17,22 +17,17 @@ public enum Ranking {
         this.prizeMoney = prizeMoney;
     }
 
-    public Ranking 찾기(int matchCount) {
-        for (Ranking ranking : Ranking.values()) {
-            if (ranking.matchCount == matchCount) {
-                return ranking;
-            }
+    public Ranking getRanking(int matchCount, boolean bonusNumber) {
+        if (matchCount == THIRD.matchCount && !bonusNumber) {
+            return THIRD;
         }
-        throw new IllegalArgumentException("찾을 수 없는 matchCount 입니다,");
-
-//        Arrays.stream(Ranking.values())
-//                .filter(ranking -> ranking.matchCount == matchCount)
-//                .findFirst()
-//                .orElseThrow(() -> new IllegalArgumentException("찾을 수 없는 matchCount 입니다,"));
-    }
-
-    public int 곱하기() {
-        return this.matchCount * this.prizeMoney;
+        if (matchCount < FIFTH.matchCount) {
+            return NOTHING;
+        }
+        return Arrays.stream(Ranking.values())
+                .filter(ranking -> ranking.matchCount == matchCount)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("찾을 수 없는 matchCount 입니다,"));
     }
 
     public int getMatchCount() {
