@@ -29,11 +29,11 @@ public class LottoNumber {
         for (int i = 0; i < lottoNumber.getLottoNumbers().size(); i++) {
             count = compareLottoNumber(lottoNumber, i, count);
         }
-        boolean bonusBall;
+        boolean bonusBall = false;
         if (count == 5) {
             bonusBall = compareBonusNumber(bonusNumber);
         }
-
+        Ranking.getRanking(count, bonusBall);
     }
 
     private int compareLottoNumber(LottoNumber lottoNumber, int i, int count) {
