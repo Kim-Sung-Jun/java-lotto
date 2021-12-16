@@ -13,7 +13,7 @@ public class PrizeCount {
     }
 
     public PrizeCount plus() {
-        return new PrizeCount(lottoPrizeCount + VALUE_COUNT);
+        return new PrizeCount(this.lottoPrizeCount + VALUE_COUNT);
     }
 
     public int getPrizeCount() {

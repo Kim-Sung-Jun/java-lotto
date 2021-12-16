@@ -7,10 +7,11 @@ public class LottoManager {
         Output.printLottoCount(lottoCount);
         List<LottoNumber> numbers = LottoNumbersFactory.createLottoNumberByMoney(lottoCount);
         LottoNumbers lottoNumbers = new LottoNumbers(numbers);
-        LottoWinningNumber lottoWinningNumber = new LottoWinningNumber(
-                WinningNumberFactory.transformWinningNumber(
-                        Input.inputLottoWinningNumber()), new BonusNumber(Input.inputBonusNumber()));
-        TotalLottoRankingCount totalLottoRankingCount;
-        lottoNumbers.compareResult(lottoWinningNumber, new TotalLottoRankingCount());
+        LottoWinningNumber lottoWinningNumber = new LottoWinningNumber(WinningNumberFactory.transformWinningNumber(
+                Input.inputLottoWinningNumber()), new BonusNumber(Input.inputBonusNumber()));
+        TotalLottoRankingCount totalLottoRankingCount = new TotalLottoRankingCount();
+        TotalValue totalValue = lottoNumbers.compareResult(lottoWinningNumber, totalLottoRankingCount, new TotalValue());
+        Output.printRanking(totalLottoRankingCount);
+        Output.printProfitsRate(totalValue, money);
     }
 }

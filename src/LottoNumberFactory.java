@@ -10,7 +10,7 @@ public class LottoNumberFactory {
     private static final Set<Integer> LOTTO_NUMBERS_STORAGE = new HashSet<>();
 
     static {
-        for (int i = MIN_LOTTO_TOTAL_NUMBER; i < MAX_LOTTO_TOTAL_NUMBER; i++) {
+        for (int i = MIN_LOTTO_TOTAL_NUMBER; i <= MAX_LOTTO_TOTAL_NUMBER; i++) {
             LOTTO_NUMBERS_STORAGE.add(i);
         }
     }

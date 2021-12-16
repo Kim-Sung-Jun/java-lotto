@@ -13,6 +13,18 @@ public class LottoNumber {
 
     private void validate(List<Integer> lottoRandomNumber) {
         validateLength(lottoRandomNumber);
+        //사이즈
+        for (int i = 0; i < lottoRandomNumber.size(); i++) {
+            validateValueRange(lottoRandomNumber.get(i));
+        }
+    }
+
+    private void validateValueRange(int number) {
+        if (number > LottoNumberFactory.MAX_LOTTO_TOTAL_NUMBER) {
+            throw new IllegalArgumentException("숫자가 너무 큽니다.");
+        } else if (number < LottoNumberFactory.MIN_LOTTO_TOTAL_NUMBER) {
+            throw new IllegalArgumentException("숫자가 너무 작습니다.");
+        }
     }
 
     private void validateLength(List<Integer> lottoNumbers) {

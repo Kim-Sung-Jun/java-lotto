@@ -8,10 +8,14 @@ public class TotalLottoRankingCount {
 
     public TotalLottoRankingCount() {
         this.lottoRankingCount = new HashMap<>();
+        for (Ranking ranking : Ranking.values()) {
+            lottoRankingCount.put(ranking, new PrizeCount(SameValueCount.DEFAULT_VALUE)); //초기값을 넣어놓고 나중에 초기화 해준다.
+        }
     }
 
     public void addPrizeCount(Ranking ranking, PrizeCount prizeCount) {
-        this.lottoRankingCount.put(ranking, prizeCount.plus());
+        prizeCount.plus();
+        this.lottoRankingCount.put(ranking, prizeCount);
     }
 
     public Map<Ranking, PrizeCount> getLottoRankingCount() {

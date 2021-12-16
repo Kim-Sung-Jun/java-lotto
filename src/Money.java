@@ -37,4 +37,8 @@ public class Money {
     public long calculationLottoCount() {
         return amount / LOTTO_PRICE;
     }
+
+    public long getAmount() {
+        return this.amount;
+    }
 }
