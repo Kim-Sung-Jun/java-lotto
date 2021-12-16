@@ -1,9 +1,9 @@
 public class SameValueCount {
 
-    private static final int DEFAULT_VALUE = 0;
+    public static final int DEFAULT_VALUE = 0;
     private static final int COUNT = 1;
 
-    private final int valueCount;
+    private int valueCount; //파이널 고민
 
     public SameValueCount() {
         this(DEFAULT_VALUE);
@@ -13,8 +13,8 @@ public class SameValueCount {
         this.valueCount = valueCount;
     }
 
-    public SameValueCount plus() {
-        return new SameValueCount(valueCount + COUNT);
+    public void plus() {
+        this.valueCount += COUNT;
     }
 
     public int getValueCount() {

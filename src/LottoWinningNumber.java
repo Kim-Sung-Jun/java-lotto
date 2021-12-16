@@ -7,15 +7,17 @@ public class LottoWinningNumber extends LottoNumber {
     public LottoWinningNumber(List<Integer> lottoWinningNumber, BonusNumber bonusNumber) {
         super(lottoWinningNumber);
         this.bonusNumber = bonusNumber;
+    }
 
+    public void compareLottoNumbers(LottoNumber lottoNumber, SameValueCount sameValueCount) { //이건 값을 보낸게 아님님
+        super.repeatLottoNumberCheck(lottoNumber, sameValueCount); //보너스넘버는 위닝이 가지고 있다
+    }
+
+    public boolean findBonusNumber() {
+        return super.isBonusNumber(bonusNumber);
     }
 
     public BonusNumber getBonusNumber() {
         return bonusNumber;
-    }
-
-    public void handOver(LottoNumber lottoNumber) { //이건 값을 보낸게 아님님
-        super.compare(lottoNumber, this.bonusNumber); //보너스넘버는 위닝이 가지고 있다
-
     }
 }

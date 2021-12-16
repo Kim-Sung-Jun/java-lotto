@@ -5,6 +5,5 @@ public class LottoDriver {
         Money money = new Money(Input.inputMoney());
         lottoManager.proceed(money);
 
-
     }
 }

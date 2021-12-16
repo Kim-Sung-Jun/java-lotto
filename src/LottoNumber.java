@@ -24,26 +24,23 @@ public class LottoNumber {
         }
     }
 
-    public void compare(LottoNumber lottoNumber, BonusNumber bonusNumber) {
-        int count = 0;
+    public void repeatLottoNumberCheck(LottoNumber lottoNumber, SameValueCount sameValueCount) {
         for (int i = 0; i < lottoNumber.getLottoNumbers().size(); i++) {
-            count = compareLottoNumber(lottoNumber, i, count);
+            compareLottoNumber(lottoNumber, i, sameValueCount);
         }
-        boolean bonusBall = false;
-        if (count == 5) {
-            bonusBall = compareBonusNumber(bonusNumber);
-        }
-        Ranking.getRanking(count, bonusBall);
+//        boolean bonusBall = false;
+//        if (count == 5) {
+//            bonusBall = compareBonusNumber(bonusNumber);
+//        }
     }
 
-    private int compareLottoNumber(LottoNumber lottoNumber, int i, int count) {
+    private void compareLottoNumber(LottoNumber lottoNumber, int i, SameValueCount sameValueCount) {
         if (this.lottoNumbers.contains(lottoNumber.getLottoNumbers().get(i))) {
-            count++;
+            sameValueCount.plus();
         }
-        return count;
     }
 
-    private boolean compareBonusNumber(BonusNumber bonusNumber) {
+    public boolean isBonusNumber(BonusNumber bonusNumber) {
         return this.lottoNumbers.contains(bonusNumber.getNumber());
     }
 

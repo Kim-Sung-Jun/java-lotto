@@ -17,15 +17,15 @@ public enum Ranking {
         this.prizeMoney = prizeMoney;
     }
 
-    public static Ranking getRanking(int matchCount, boolean bonusNumber) {
-        if (matchCount == THIRD.matchCount && !bonusNumber) { //여기서 3등을 찾아냄
+    public static Ranking getRanking(SameValueCount sameValueCount, boolean bonusNumber) {
+        if (sameValueCount.getValueCount() == THIRD.matchCount && !bonusNumber) { //여기서 3등을 찾아냄
             return THIRD;
         }
-        if (matchCount < FIFTH.matchCount) {
+        if (sameValueCount.getValueCount() < FIFTH.matchCount) {
             return NOTHING;
         }
         return Arrays.stream(Ranking.values())  //위에서 3등을 찾았기 때문에 여기서 2등을 찾아냄
-                .filter(ranking -> ranking.matchCount == matchCount)
+                .filter(ranking -> ranking.matchCount == sameValueCount.getValueCount())
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("찾을 수 없는 matchCount 입니다,"));
     }
