@@ -15,7 +15,7 @@ public class TotalLottoRankingCount {
 
     public void addPrizeCount(Ranking ranking, PrizeCount prizeCount) {
         prizeCount.plus();
-        this.lottoRankingCount.put(ranking, prizeCount);
+        this.lottoRankingCount.put(ranking, prizeCount.plus());
     }
 
     public Map<Ranking, PrizeCount> getLottoRankingCount() {
