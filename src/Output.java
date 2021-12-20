@@ -16,7 +16,7 @@ public class Output {
 
     public static void printRanking(TotalLottoRankingCount totalLottoRankingCount) {
         System.out.println("당첨 통계");
-        System.out.println("----------");
+        System.out.println("---------");
         for (Ranking ranking : Ranking.values()) {
             validateRanking(ranking, totalLottoRankingCount);
         }
@@ -34,13 +34,8 @@ public class Output {
     }
 
     public static void printProfitsRate(TotalValue totalValue, Money money) {
-        System.out.println(totalValue.getTotal());
-        System.out.println(money.getAmount());
-        System.out.println(totalValue.getTotal() / money.getAmount());
-        System.out.println("총 수익률은 " + String.format("%.2f", (double) (totalValue.getTotal() / money.getAmount())) + "입니다.");
+        System.out.println("총 수익률은 " + String.format("%.2f",
+                ((double) totalValue.getTotal() / (double) money.getAmount())) + "입니다.");
     }
 
-    public static void printExceptionMsg(String msg) {
-        System.out.println(msg);
-    }
 }
