@@ -15,7 +15,6 @@ public class LottoNumbers {
     public TotalValue compareResult(LottoWinningNumber lottoWinningNumber, TotalLottoRankingCount totalLottoRankingCount, TotalValue totalValue) { //카운터를 찾는 메소드
         for (LottoNumber number : numbers) {
             SameValueCount sameValueCount = new SameValueCount();
-            PrizeCount prizeCount = new PrizeCount();//값을 인스턴스로 보내
             lottoWinningNumber.compareLottoNumbers(number, sameValueCount);
             Ranking ranking = Ranking.getRanking(sameValueCount, isBonusNumber(lottoWinningNumber, sameValueCount));
             totalLottoRankingCount.addPrizeCount(ranking);
