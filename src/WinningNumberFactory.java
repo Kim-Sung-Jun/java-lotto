@@ -3,7 +3,7 @@ import java.util.List;
 
 public class WinningNumberFactory {
 
-    public static List<Integer> transformWinningNumber(String winningNumber) {
+    public static List<Integer> transformWinningNumber(String winningNumber) { //여기가 제일 마음에 들지 않음
         List<Integer> winningNumbers = new ArrayList<>();
         try {
             String[] lottoWinningNumbers = winningNumber.trim().replace(" ", "").split(",");

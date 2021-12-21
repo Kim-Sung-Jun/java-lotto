@@ -9,7 +9,6 @@ public enum Ranking {
     SECOND(5, 30000000),
     FIRST(6, 2000000000);
 
-
     private final int matchCount;
     private final int prizeMoney;
 
@@ -38,4 +37,5 @@ public enum Ranking {
     public int getPrizeMoney() {
         return prizeMoney;
     }
+
 }

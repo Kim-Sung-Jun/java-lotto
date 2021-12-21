@@ -27,7 +27,7 @@ public class Output {
             System.out.println(ranking.getMatchCount() + "개 일치, 보너스 볼 일치 (" + ranking.getPrizeMoney() + "원) - " +
                     totalLottoRankingCount.getLottoRankingCount().getOrDefault(ranking,
                             new PrizeCount(SameValueCount.DEFAULT_VALUE)).getPrizeCount() + "개"); //새로운 방법
-        } else if (ranking.getMatchCount() > SameValueCount.DEFAULT_VALUE) { //상수처리
+        } else if (ranking.getMatchCount() > SameValueCount.DEFAULT_VALUE) {
             System.out.println(ranking.getMatchCount() + "개 일치 (" + ranking.getPrizeMoney() + "원) - " +
                     totalLottoRankingCount.getLottoRankingCount().get(ranking).getPrizeCount() + "개");
         }

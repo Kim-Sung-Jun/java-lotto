@@ -3,7 +3,7 @@ import java.util.List;
 
 public class LottoNumbersFactory {
 
-    public static List<LottoNumber> createLottoNumberByMoney(LottoCount lottoCount) {  //클래스 따로 분리해주기
+    public static List<LottoNumber> createLottoNumberByMoney(LottoCount lottoCount) {
         List<LottoNumber> numbers = new ArrayList<>();
         LottoNumberFactory lottoNumberCreate = new LottoNumberFactory();
         for (int i = 0; i < lottoCount.getLottoCount(); i++) {

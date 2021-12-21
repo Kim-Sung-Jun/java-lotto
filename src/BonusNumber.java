@@ -12,7 +12,7 @@ public class BonusNumber {
         return bonusNumber;
     }
 
-    private int validateBonusNumberType(String inputBonusNumber) { //벨리데이트가 2가지를 검증하는중, 분리필요
+    private int validateBonusNumberType(String inputBonusNumber) {
         try {
             return Integer.parseInt(inputBonusNumber);
         } catch (NumberFormatException e) {

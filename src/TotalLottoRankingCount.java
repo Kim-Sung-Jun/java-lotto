@@ -13,12 +13,13 @@ public class TotalLottoRankingCount {
         }
     }
 
-    public void addPrizeCount(Ranking ranking, PrizeCount prizeCount) {
-        prizeCount.plus();
-        this.lottoRankingCount.put(ranking, prizeCount.plus());
+    public void addPrizeCount(Ranking ranking) {
+        this.lottoRankingCount.computeIfPresent(ranking, (Ranking key, PrizeCount value) -> value.plus()); //수정
+        //this.lottoRankingCount.put(ranking, prizeCount.plus());
     }
 
     public Map<Ranking, PrizeCount> getLottoRankingCount() {
         return Collections.unmodifiableMap(lottoRankingCount);
     }
+
 }

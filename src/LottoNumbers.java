@@ -18,7 +18,7 @@ public class LottoNumbers {
             PrizeCount prizeCount = new PrizeCount();//값을 인스턴스로 보내
             lottoWinningNumber.compareLottoNumbers(number, sameValueCount);
             Ranking ranking = Ranking.getRanking(sameValueCount, isBonusNumber(lottoWinningNumber, sameValueCount));
-            totalLottoRankingCount.addPrizeCount(ranking, prizeCount);
+            totalLottoRankingCount.addPrizeCount(ranking);
             totalValue.add(ranking);
         }
         return totalValue;

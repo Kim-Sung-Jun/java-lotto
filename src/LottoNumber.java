@@ -40,10 +40,6 @@ public class LottoNumber {
         for (int i = 0; i < lottoNumber.getLottoNumbers().size(); i++) {
             compareLottoNumber(lottoNumber, i, sameValueCount);
         }
-//        boolean bonusBall = false;
-//        if (count == 5) {
-//            bonusBall = compareBonusNumber(bonusNumber);
-//        }
     }
 
     private void compareLottoNumber(LottoNumber lottoNumber, int i, SameValueCount sameValueCount) {
