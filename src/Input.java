@@ -15,7 +15,18 @@ public class Input {
     }
 
     public static String inputBonusNumber() {
-        Output.printInputMsg("보너스 볼을 입력해 주세요");
+        Output.printInputMsg("보너스 볼을 입력해 주세요.");
         return SCANNER.next();
     }
+
+    public static String inputManualLottoNumberCount() {
+        Output.printInputMsg("수동으로 구매할 로또 수를 입력해 주세요.");
+        return SCANNER.next();
+    }
+
+    public static String inputLottoNumberManually() {
+        Output.printInputMsg("수동으로 구매할 번호를 입력해 주세요.");
+        return SCANNER.next();
+    }
+
 }

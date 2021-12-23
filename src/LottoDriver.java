@@ -11,4 +11,5 @@ public class LottoDriver {
             System.out.println("문제가 생겨 종료하였습니다.");
         }
     }
+
 }

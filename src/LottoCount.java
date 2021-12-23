@@ -9,4 +9,5 @@ public class LottoCount {
     public long getLottoCount() {
         return lottoCount;
     }
+
 }

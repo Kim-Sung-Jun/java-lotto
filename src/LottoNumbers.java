@@ -12,7 +12,8 @@ public class LottoNumbers {
         this.numbers = new ArrayList<>(lottoNumbers);
     }
 
-    public TotalValue compareResult(LottoWinningNumber lottoWinningNumber, TotalLottoRankingCount totalLottoRankingCount, TotalValue totalValue) { //카운터를 찾는 메소드
+    public TotalValue compareResult(LottoWinningNumber lottoWinningNumber,
+                                    TotalLottoRankingCount totalLottoRankingCount, TotalValue totalValue) { //카운터를 찾는 메소드
         for (LottoNumber number : numbers) {
             SameValueCount sameValueCount = new SameValueCount();
             lottoWinningNumber.compareLottoNumbers(number, sameValueCount);
