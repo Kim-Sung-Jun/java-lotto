@@ -10,8 +10,8 @@ public class Output {
         System.out.println(msg);
     }
 
-    public static void printLottoCount(LottoCount lottoCount) {
-        System.out.println(lottoCount.getLottoCount() + "개를 구매했습니다.");
+    public static void printLottoCount(LottoCount lottoCount) { //여기서 로또 카운트는 자동을 의미함 //자동 앞에 수동 만들어주기
+        System.out.println("자동으로 " + lottoCount.getLottoCount() + "개를 구매했습니다.");
     }
 
     public static void printRanking(TotalLottoRankingCount totalLottoRankingCount) {
