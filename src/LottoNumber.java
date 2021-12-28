@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class LottoNumber {
 
@@ -14,7 +16,7 @@ public class LottoNumber {
     private void validate(List<Integer> lottoRandomNumber) {
         validateLength(lottoRandomNumber);
         //사이즈
-        for (int i = 0; i < lottoRandomNumber.size(); i++) { // 2021.12.16 해결하는중
+        for (int i = 0; i < lottoRandomNumber.size(); i++) {
             validateValueRange(lottoRandomNumber.get(i));
         }
     }
