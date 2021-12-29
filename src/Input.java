@@ -19,12 +19,12 @@ public class Input {
         return SCANNER.next();
     }
 
-    public static String inputManualLottoNumberCount() {
+    public static String inputManualLottoCount() {
         Output.printInputMsg("수동으로 구매할 로또 수를 입력해 주세요.");
         return SCANNER.next();
     }
 
-    public static String inputLottoNumberManually() {
+    public static String inputLottoNumber() {
         Output.printInputMsg("수동으로 구매할 번호를 입력해 주세요.");
         return SCANNER.next();
     }

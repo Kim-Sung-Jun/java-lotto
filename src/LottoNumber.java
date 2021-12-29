@@ -57,4 +57,5 @@ public class LottoNumber {
     public List<Integer> getLottoNumbers() {
         return Collections.unmodifiableList(lottoNumbers);
     }
+
 }
