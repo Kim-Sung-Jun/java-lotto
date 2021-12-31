@@ -1,3 +1,5 @@
+package domain;
+
 public class TotalValue {
 
     private long total;

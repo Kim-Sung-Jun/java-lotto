@@ -1,3 +1,8 @@
+package domain;
+
+import ui.Input;
+import ui.Output;
+
 import java.util.List;
 
 public class LottoManager {

@@ -1,3 +1,7 @@
+package ui;
+
+import domain.*;
+
 import java.util.List;
 
 public class Output {

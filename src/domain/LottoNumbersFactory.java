@@ -1,3 +1,7 @@
+package domain;
+
+import ui.Output;
+
 import java.util.ArrayList;
 import java.util.List;
 

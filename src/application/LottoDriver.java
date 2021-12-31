@@ -1,3 +1,9 @@
+package application;
+
+import domain.LottoManager;
+import domain.Money;
+import ui.Input;
+
 public class LottoDriver {
 
     public static void main(String[] args) {

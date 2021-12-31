@@ -1,3 +1,5 @@
+package domain;
+
 public class SameValueCount {
 
     public static final int DEFAULT_VALUE = 0;

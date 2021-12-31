@@ -1,3 +1,5 @@
+package domain;
+
 public class PrizeCount {
 
     private static final int VALUE_COUNT = 1;

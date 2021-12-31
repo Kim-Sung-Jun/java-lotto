@@ -1,3 +1,5 @@
+package domain;
+
 public class BonusNumber {
 
     private final int number;
