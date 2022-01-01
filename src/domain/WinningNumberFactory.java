@@ -17,4 +17,5 @@ public class WinningNumberFactory { //얘가 보너스볼도 파라미터로 받
         }
         return winningNumbers;
     }
+    
 }

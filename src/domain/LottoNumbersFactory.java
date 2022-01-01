@@ -1,6 +1,6 @@
 package domain;
 
-import ui.Output;
+import view.Output;
 
 import java.util.ArrayList;
 import java.util.List;

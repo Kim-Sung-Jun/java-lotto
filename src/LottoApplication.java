@@ -1,10 +1,8 @@
-package application;
-
-import domain.LottoManager;
+import controller.LottoManager;
 import domain.Money;
-import ui.Input;
+import view.Input;
 
-public class LottoDriver {
+public class LottoApplication {
 
     public static void main(String[] args) {
         LottoManager lottoManager = new LottoManager();

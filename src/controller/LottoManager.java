@@ -1,7 +1,8 @@
-package domain;
+package controller;
 
-import ui.Input;
-import ui.Output;
+import domain.*;
+import view.Input;
+import view.Output;
 
 import java.util.List;
 
