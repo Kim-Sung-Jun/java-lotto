@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LottoNumbersFactory {
 
-    public static List<LottoNumber> createLottoNumberByMoney(LottoCount lottoCount) {
+    public static List<LottoNumber> createLottoNumberByMoney(AutomaticLottoCount lottoCount) {
         List<LottoNumber> numbers = new ArrayList<>();
         LottoNumberFactory lottoNumberCreate = new LottoNumberFactory();
         for (int i = 0; i < lottoCount.getLottoCount(); i++) {

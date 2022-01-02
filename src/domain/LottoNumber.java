@@ -17,9 +17,8 @@ public class LottoNumber {
 
     private void validate(List<Integer> lottoRandomNumber) {
         validateLength(lottoRandomNumber);
-        //사이즈
-        for (int i = 0; i < lottoRandomNumber.size(); i++) {
-            validateValueRange(lottoRandomNumber.get(i));
+        for (Integer integer : lottoRandomNumber) {
+            validateValueRange(integer);
         }
     }
 

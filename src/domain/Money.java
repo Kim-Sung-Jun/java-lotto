@@ -1,5 +1,7 @@
 package domain;
 
+import view.Input;
+
 public class Money {
 
     private static final int LOTTO_PRICE = 1000;
@@ -36,8 +38,12 @@ public class Money {
         throw new IllegalArgumentException("금액이 부족합니다.");
     }
 
-    public long calculationLottoCount() {
+    public long calculateAutomaticLottoCount() {
         return amount / LOTTO_PRICE;
+    }
+
+    public long calculateManualLottoCount(long) {
+        return amount - Input.inputManualLottoCount()
     }
 
     public long getAmount() {
