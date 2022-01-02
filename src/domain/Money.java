@@ -1,7 +1,5 @@
 package domain;
 
-import view.Input;
-
 public class Money {
 
     private static final int LOTTO_PRICE = 1000;
@@ -42,8 +40,11 @@ public class Money {
         return amount / LOTTO_PRICE;
     }
 
-    public long calculateManualLottoCount(long) {
-        return amount - Input.inputManualLottoCount()
+    public void calculateManualLottoCount(long manualLottoPurchaseCount) { //수동 개수만큼 금액변경
+        this.amount -= (manualLottoPurchaseCount * LOTTO_PRICE);
+        if (this.amount < LOTTO_PRICE) {
+            validateMoney();
+        }
     }
 
     public long getAmount() {

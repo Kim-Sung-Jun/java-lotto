@@ -10,21 +10,22 @@ public class ManualLotto {
     }
 
     private long validate(Money money, String manualLottoPurchaseCount) {
-        validateManualLottoPurchaseCount(money);
-        return validateInputType(manualLottoPurchaseCount);
+        return validateInputType(money, manualLottoPurchaseCount);
     }
 
-    private void validateManualLottoPurchaseCount(Money money) {
-        money.calculateManualLottoCount(manualLottoPurchaseCount);
-    }
-
-    private long validateInputType(String manualLottoPurchaseCount) { //타입 불일치시 예외발생
+    private long validateInputType(Money money, String manualLottoPurchaseCount) { //타입 불일치시 예외발생
         try {
-            return Long.parseLong(manualLottoPurchaseCount);
+            return validateManualLottoPurchaseCount(money, Long.parseLong(manualLottoPurchaseCount));
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
         }
     }
+
+    private long validateManualLottoPurchaseCount(Money money, long manualLottoPurchaseCount) {
+        money.calculateManualLottoCount(manualLottoPurchaseCount);
+        return manualLottoPurchaseCount;
+    }
+
 
     public long getManualLottoPurchaseCount() {
         return this.manualLottoPurchaseCount;
