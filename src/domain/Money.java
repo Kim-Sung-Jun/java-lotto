@@ -41,7 +41,14 @@ public class Money {
     }
 
     public void calculateManualLottoCount(long manualLottoPurchaseCount) { //수동 개수만큼 금액변경
+        validate();
         this.amount -= (manualLottoPurchaseCount * LOTTO_PRICE);
+        if (this.amount < LOTTO_PRICE) {
+            validateMoney();
+        }
+    }
+
+    private void validate() { //변수명 다시 만들기
         if (this.amount < LOTTO_PRICE) {
             validateMoney();
         }
