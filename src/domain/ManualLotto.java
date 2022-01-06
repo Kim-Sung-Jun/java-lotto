@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 public class ManualLotto {
 
     private final long manualLottoPurchaseCount;
@@ -9,11 +11,15 @@ public class ManualLotto {
 
     }
 
+    public List<LottoNumber> createManualLottoByManualLottoCount() {
+        return LottoNumberFactory.createManualLottoNumberByMoney(this.manualLottoPurchaseCount);
+    }
+
     private long validate(Money money, String manualLottoPurchaseCount) {
         return validateInputType(money, manualLottoPurchaseCount);
     }
 
-    private long validateInputType(Money money, String manualLottoPurchaseCount) { //타입 불일치시 예외발생
+    private long validateInputType(Money money, String manualLottoPurchaseCount) {
         try {
             return validateManualLottoPurchaseCount(money, Long.parseLong(manualLottoPurchaseCount));
         } catch (NumberFormatException e) {
@@ -22,10 +28,10 @@ public class ManualLotto {
     }
 
     private long validateManualLottoPurchaseCount(Money money, long manualLottoPurchaseCount) {
-        money.calculateManualLottoCount(manualLottoPurchaseCount);
+        money.validateEnoughMoney();
+        money.calculateAmountByManualLottoCount(manualLottoPurchaseCount);
         return manualLottoPurchaseCount;
     }
-
 
     public long getManualLottoPurchaseCount() {
         return this.manualLottoPurchaseCount;

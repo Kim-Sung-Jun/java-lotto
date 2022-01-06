@@ -6,7 +6,7 @@ public class Money {
 
     private long amount = 0;
 
-    public Money(String amount) { //생성자는 항상 값을 초기화, 검증만 해준다
+    public Money(String amount) {
         validate(amount);
     }
 
@@ -14,13 +14,13 @@ public class Money {
         validateInputMoneyType(amount);
     }
 
-    private void validateInputMoneyType(String amount) { //타입 불일치시 예외발생
+    private void validateInputMoneyType(String amount) {
         if (!isNumber(amount)) {
             throw new IllegalArgumentException("숫자가 아닙니다.");
         }
     }
 
-    private boolean isNumber(String amount) { //타입검사
+    private boolean isNumber(String amount) {
         try {
             this.amount = Long.parseLong(amount);
             if (this.amount < LOTTO_PRICE) {
@@ -40,15 +40,11 @@ public class Money {
         return amount / LOTTO_PRICE;
     }
 
-    public void calculateManualLottoCount(long manualLottoPurchaseCount) { //수동 개수만큼 금액변경
-        validate();
+    public void calculateAmountByManualLottoCount(long manualLottoPurchaseCount) {
         this.amount -= (manualLottoPurchaseCount * LOTTO_PRICE);
-        if (this.amount < LOTTO_PRICE) {
-            validateMoney();
-        }
     }
 
-    private void validate() { //변수명 다시 만들기
+    public void validateEnoughMoney() {
         if (this.amount < LOTTO_PRICE) {
             validateMoney();
         }
@@ -57,4 +53,5 @@ public class Money {
     public long getAmount() {
         return this.amount;
     }
+
 }

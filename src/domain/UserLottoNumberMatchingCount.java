@@ -1,17 +1,17 @@
 package domain;
 
-public class SameValueCount {
+public class UserLottoNumberMatchingCount {
 
     public static final int DEFAULT_VALUE = 0;
     private static final int COUNT = 1;
 
     private int valueCount;
 
-    public SameValueCount() {
+    public UserLottoNumberMatchingCount() {
         this(DEFAULT_VALUE);
     }
 
-    public SameValueCount(int valueCount) {
+    public UserLottoNumberMatchingCount(int valueCount) {
         this.valueCount = valueCount;
     }
 

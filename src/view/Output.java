@@ -14,11 +14,12 @@ public class Output {
         System.out.println(msg);
     }
 
-    public static void printLottoCount(AutoLottoCount lottoCount) { //여기서 로또 카운트는 자동을 의미함 //자동 앞에 수동 만들어주기
-        System.out.println("자동으로 " + lottoCount.getLottoCount() + "개를 구매했습니다.");
+    public static void printLottoCount(ManualLotto manualLotto, Money money) {
+        System.out.println("수동으로" + manualLotto.getManualLottoPurchaseCount()
+                + "장, " + "자동으로" + money.calculateAutomaticLottoCount() + "개를 구매했습니다.");
     }
 
-    public static void printRanking(TotalLottoRankingCount totalLottoRankingCount) {
+    public static void printRanking(LottoWinningResults totalLottoRankingCount) {
         System.out.println("당첨 통계");
         System.out.println("---------");
         for (Ranking ranking : Ranking.values()) {
@@ -26,18 +27,18 @@ public class Output {
         }
     }
 
-    public static void validateRanking(Ranking ranking, TotalLottoRankingCount totalLottoRankingCount) {
+    public static void validateRanking(Ranking ranking, LottoWinningResults totalLottoRankingCount) {
         if (Ranking.SECOND == ranking) {
             System.out.println(ranking.getMatchCount() + "개 일치, 보너스 볼 일치 (" + ranking.getPrizeMoney() + "원) - " +
                     totalLottoRankingCount.getLottoRankingCount().getOrDefault(ranking,
-                            new PrizeCount(SameValueCount.DEFAULT_VALUE)).getPrizeCount() + "개"); //새로운 방법
-        } else if (ranking.getMatchCount() > SameValueCount.DEFAULT_VALUE) {
+                            new RankingCount(UserLottoNumberMatchingCount.DEFAULT_VALUE)).getPrizeCount() + "개");
+        } else if (ranking.getMatchCount() > UserLottoNumberMatchingCount.DEFAULT_VALUE) {
             System.out.println(ranking.getMatchCount() + "개 일치 (" + ranking.getPrizeMoney() + "원) - " +
                     totalLottoRankingCount.getLottoRankingCount().get(ranking).getPrizeCount() + "개");
         }
     }
 
-    public static void printProfitsRate(TotalValue totalValue, Money money) {
+    public static void printProfitsRate(WinningLottoAmount totalValue, Money money) {
         System.out.println("총 수익률은 " + String.format("%.2f",
                 ((double) totalValue.getTotal() / (double) money.getAmount())) + "입니다.");
     }

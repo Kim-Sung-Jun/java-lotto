@@ -10,9 +10,9 @@ public class LottoNumber {
 
     private final List<Integer> lottoNumbers;
 
-    public LottoNumber(List<Integer> lottoRandomNumber) {
-        validate(lottoRandomNumber);
-        this.lottoNumbers = new ArrayList<>(lottoRandomNumber);
+    public LottoNumber(List<Integer> lottoNumber) {
+        validate(lottoNumber);
+        this.lottoNumbers = new ArrayList<>(lottoNumber);
     }
 
     private void validate(List<Integer> lottoRandomNumber) {
@@ -39,20 +39,20 @@ public class LottoNumber {
         }
     }
 
-    public void repeatLottoNumberCheck(LottoNumber lottoNumber, SameValueCount sameValueCount) {
-        for (int i = 0; i < lottoNumber.getLottoNumbers().size(); i++) {
+    public void repeatLottoNumberCheck(LottoNumber lottoNumber, UserLottoNumberMatchingCount sameValueCount) {
+        for (int i = 0; i < lottoNumber.lottoNumbers.size(); i++) {
             compareLottoNumber(lottoNumber, i, sameValueCount);
         }
     }
 
-    private void compareLottoNumber(LottoNumber lottoNumber, int i, SameValueCount sameValueCount) {
-        if (this.lottoNumbers.contains(lottoNumber.getLottoNumbers().get(i))) {
+    private void compareLottoNumber(LottoNumber lottoNumber, int i, UserLottoNumberMatchingCount sameValueCount) {
+        if (this.lottoNumbers.contains(lottoNumber.lottoNumbers.get(i))) {
             sameValueCount.plus();
         }
     }
 
     public boolean isBonusNumber(BonusNumber bonusNumber) {
-        return this.lottoNumbers.contains(bonusNumber.getNumber());
+        return bonusNumber.isBonusNumber(this.lottoNumbers);
     }
 
     public List<Integer> getLottoNumbers() {

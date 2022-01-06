@@ -1,7 +1,7 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import view.Output;
+
 import java.util.List;
 
 public class LottoNumbers {
@@ -10,14 +10,27 @@ public class LottoNumbers {
 
     private final List<LottoNumber> numbers;
 
-    public LottoNumbers(List<LottoNumber> lottoNumbers) {
-        this.numbers = new ArrayList<>(lottoNumbers);
+    public LottoNumbers(Money money, ManualLotto manualLotto, List<LottoNumber> lottoNumbers) {
+        this.numbers = createLottoNumberByMoney(money, manualLotto, lottoNumbers);
     }
 
-    public TotalValue compareResult(LottoWinningNumber lottoWinningNumber,
-                                    TotalLottoRankingCount totalLottoRankingCount, TotalValue totalValue) { //카운터를 찾는 메소드
+    public List<LottoNumber> createLottoNumberByMoney(Money money, ManualLotto manualLotto, List<LottoNumber> lottoNumbers) {
+        long autoLottoCount = money.calculateAutomaticLottoCount();
+        Output.printLottoCount(manualLotto, money);
+        for (int i = 0; i < autoLottoCount; i++) {
+            LottoNumber lottoNumber = new LottoNumber(LottoNumberFactory.createLottoRandomNumber());
+            lottoNumbers.add(lottoNumber);
+        }
+        for (LottoNumber lottoNumber : lottoNumbers) {
+            Output.printLottoNumber(lottoNumber.getLottoNumbers());
+        }
+        return lottoNumbers;
+    }
+
+    public WinningLottoAmount compareResult(LottoWinningNumber lottoWinningNumber,
+                                            LottoWinningResults totalLottoRankingCount, WinningLottoAmount totalValue) {
         for (LottoNumber number : numbers) {
-            SameValueCount sameValueCount = new SameValueCount();
+            UserLottoNumberMatchingCount sameValueCount = new UserLottoNumberMatchingCount();
             lottoWinningNumber.compareLottoNumbers(number, sameValueCount);
             Ranking ranking = Ranking.getRanking(sameValueCount, isBonusNumber(lottoWinningNumber, sameValueCount));
             totalLottoRankingCount.addPrizeCount(ranking);
@@ -26,14 +39,11 @@ public class LottoNumbers {
         return totalValue;
     }
 
-    private boolean isBonusNumber(LottoWinningNumber lottoWinningNumber, SameValueCount sameValueCount) {
+    private boolean isBonusNumber(LottoWinningNumber lottoWinningNumber, UserLottoNumberMatchingCount sameValueCount) {
         if (sameValueCount.getValueCount() == MATCH_COUNT) {
             return lottoWinningNumber.findBonusNumber();
         }
         return false;
     }
 
-    public List<LottoNumber> getNumbers() {
-        return Collections.unmodifiableList(numbers);
-    }
 }

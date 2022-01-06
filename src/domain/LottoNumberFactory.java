@@ -1,5 +1,8 @@
 package domain;
 
+import view.Input;
+import view.Output;
+
 import java.util.*;
 
 public class LottoNumberFactory {
@@ -17,7 +20,7 @@ public class LottoNumberFactory {
         }
     }
 
-    public List<Integer> createLottoRandomNumber() {
+    public static List<Integer> createLottoRandomNumber() {
         List<Integer> lottoNumbers = new ArrayList<>(LOTTO_NUMBERS_STORAGE);
         Collections.shuffle(lottoNumbers);
         lottoNumbers = new ArrayList<>(lottoNumbers.subList(
@@ -25,4 +28,29 @@ public class LottoNumberFactory {
         Collections.sort(lottoNumbers);
         return Collections.unmodifiableList(lottoNumbers);
     }
+
+    public static List<Integer> createInputLottoNumber(String inputLottoNumber) {
+        List<Integer> inputLottoNumbers = new ArrayList<>();
+        try {
+            String[] lottoWinningNumbers = inputLottoNumber.trim().replace(" ", "").split(",");
+            for (String number : lottoWinningNumbers) {
+                inputLottoNumbers.add(Integer.parseInt(number));
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("당첨 번호를 잘못 입력하셨습니다.");
+        }
+        return inputLottoNumbers;
+    }
+
+    public static List<LottoNumber> createManualLottoNumberByMoney(long manualLottoPurchaseCount) {
+        List<LottoNumber> lottoNumbers = new ArrayList<>();
+        Output.printInputMsg("수동으로 구매할 번호를 입력해 주세요.");
+        for (int i = 0; i < manualLottoPurchaseCount; i++) {
+            LottoNumber lottoNumber = new LottoNumber(createInputLottoNumber(Input.inputLottoNumber()));
+            lottoNumbers.add(lottoNumber);
+        }
+        return lottoNumbers;
+    }
+
 }
+

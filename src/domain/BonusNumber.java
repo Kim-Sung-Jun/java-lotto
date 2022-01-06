@@ -1,11 +1,17 @@
 package domain;
 
+import java.util.List;
+
 public class BonusNumber {
 
     private final int number;
 
     public BonusNumber(String inputBonusNumber) {
-        this.number = validate(inputBonusNumber); //여기서 벨리데이트로 보내고 디스로 초기화가 더 좋음
+        this.number = validate(inputBonusNumber);
+    }
+
+    public boolean isBonusNumber(List<Integer> lottoNumbers) {
+        return lottoNumbers.contains(this.number);
     }
 
     private int validate(String inputBonusNumber) {
@@ -29,10 +35,6 @@ public class BonusNumber {
         if (number < LottoNumberFactory.MIN_LOTTO_TOTAL_NUMBER) {
             throw new IllegalArgumentException("숫자가 너무 작습니다");
         }
-    }
-
-    public int getNumber() {
-        return number;
     }
 
 }
