@@ -21,4 +21,5 @@ public class RankingCount {
     public int getPrizeCount() {
         return lottoPrizeCount;
     }
+    
 }
