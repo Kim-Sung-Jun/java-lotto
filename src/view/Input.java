@@ -7,7 +7,7 @@ public class Input {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static String inputMoney() {
-        Output.printInputMsg("구입금액을 입력해 주세요.");
+        Output.printInputMsg("구입금액을 입력해 주세요."); //여기서 아웃풋으로 가는게 아니라 그냥 출력해주는게 맞음
         return SCANNER.nextLine();
     }
 

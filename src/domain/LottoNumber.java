@@ -41,12 +41,12 @@ public class LottoNumber {
 
     public void repeatLottoNumberCheck(LottoNumber lottoNumber, UserLottoNumberMatchingCount sameValueCount) {
         for (int i = 0; i < lottoNumber.lottoNumbers.size(); i++) {
-            compareLottoNumber(lottoNumber, i, sameValueCount);
+            compareLottoNumber(lottoNumber, i, sameValueCount); //포이츠 쓸 것
         }
     }
 
     private void compareLottoNumber(LottoNumber lottoNumber, int i, UserLottoNumberMatchingCount sameValueCount) {
-        if (this.lottoNumbers.contains(lottoNumber.lottoNumbers.get(i))) {
+        if (this.lottoNumbers.contains(lottoNumber.lottoNumbers.get(i))) { //좋지않은방법임
             sameValueCount.plus();
         }
     }

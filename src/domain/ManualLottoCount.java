@@ -2,11 +2,11 @@ package domain;
 
 import java.util.List;
 
-public class ManualLotto {
+public class ManualLottoCount {
 
     private final long manualLottoPurchaseCount;
 
-    public ManualLotto(Money money, String manualLottoPurchaseCount) {
+    public ManualLottoCount(Money money, String manualLottoPurchaseCount) {
         this.manualLottoPurchaseCount = validate(money, manualLottoPurchaseCount);
 
     }

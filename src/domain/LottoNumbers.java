@@ -10,11 +10,11 @@ public class LottoNumbers {
 
     private final List<LottoNumber> numbers;
 
-    public LottoNumbers(Money money, ManualLotto manualLotto, List<LottoNumber> lottoNumbers) {
+    public LottoNumbers(Money money, ManualLottoCount manualLotto, List<LottoNumber> lottoNumbers) {
         this.numbers = createLottoNumberByMoney(money, manualLotto, lottoNumbers);
     }
 
-    public List<LottoNumber> createLottoNumberByMoney(Money money, ManualLotto manualLotto, List<LottoNumber> lottoNumbers) {
+    public List<LottoNumber> createLottoNumberByMoney(Money money, ManualLottoCount manualLotto, List<LottoNumber> lottoNumbers) {
         long autoLottoCount = money.calculateAutomaticLottoCount();
         Output.printLottoCount(manualLotto, money);
         for (int i = 0; i < autoLottoCount; i++) {
@@ -30,7 +30,7 @@ public class LottoNumbers {
     public WinningLottoAmount compareResult(LottoWinningNumber lottoWinningNumber,
                                             LottoWinningResults totalLottoRankingCount, WinningLottoAmount totalValue) {
         for (LottoNumber number : numbers) {
-            UserLottoNumberMatchingCount sameValueCount = new UserLottoNumberMatchingCount();
+            UserLottoNumberMatchingCount sameValueCount = new UserLottoNumberMatchingCount(); //수정해야댐
             lottoWinningNumber.compareLottoNumbers(number, sameValueCount);
             Ranking ranking = Ranking.getRanking(sameValueCount, isBonusNumber(lottoWinningNumber, sameValueCount));
             totalLottoRankingCount.addPrizeCount(ranking);

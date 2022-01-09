@@ -14,12 +14,12 @@ public class Output {
         System.out.println(msg);
     }
 
-    public static void printLottoCount(ManualLotto manualLotto, Money money) {
+    public static void printLottoCount(ManualLottoCount manualLotto, Money money) {
         System.out.println("수동으로" + manualLotto.getManualLottoPurchaseCount()
                 + "장, " + "자동으로" + money.calculateAutomaticLottoCount() + "개를 구매했습니다.");
     }
 
-    public static void printRanking(LottoWinningResults totalLottoRankingCount) {
+    public static void printRanking(LottoWinningResults totalLottoRankingCount) { //여기서 전달 받아 출력만 해주는게 맞는거임
         System.out.println("당첨 통계");
         System.out.println("---------");
         for (Ranking ranking : Ranking.values()) {

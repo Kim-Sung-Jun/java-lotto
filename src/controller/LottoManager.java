@@ -9,7 +9,7 @@ import java.util.List;
 public class LottoManager {
 
     public void proceed(Money money) {
-        ManualLotto manualLotto = new ManualLotto(money, Input.inputManualLottoCount());
+        ManualLottoCount manualLotto = new ManualLottoCount(money, Input.inputManualLottoCount());
         List<LottoNumber> userInputLottoNumbers = manualLotto.createManualLottoByManualLottoCount();
         LottoNumbers lottoNumbers = new LottoNumbers(money, manualLotto, userInputLottoNumbers);
         LottoWinningNumber lottoWinningNumber = new LottoWinningNumber(LottoNumberFactory.createInputLottoNumber(

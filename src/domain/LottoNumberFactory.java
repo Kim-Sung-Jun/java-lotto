@@ -20,7 +20,7 @@ public class LottoNumberFactory {
         }
     }
 
-    public static List<Integer> createLottoRandomNumber() {
+    public static List<Integer> createLottoRandomNumber() {                   //모두 리턴타입이 리스트인데 로또넘버객체를 리턴해주면댐
         List<Integer> lottoNumbers = new ArrayList<>(LOTTO_NUMBERS_STORAGE);
         Collections.shuffle(lottoNumbers);
         lottoNumbers = new ArrayList<>(lottoNumbers.subList(
