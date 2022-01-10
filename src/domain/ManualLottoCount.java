@@ -1,7 +1,5 @@
 package domain;
 
-import java.util.List;
-
 public class ManualLottoCount {
 
     private final long manualLottoPurchaseCount;
@@ -11,7 +9,7 @@ public class ManualLottoCount {
 
     }
 
-    public List<LottoNumber> createManualLottoByManualLottoCount() {
+    public LottoNumbers createManualLottoByManualLottoCount() {
         return LottoNumberFactory.createManualLottoNumberByMoney(this.manualLottoPurchaseCount);
     }
 

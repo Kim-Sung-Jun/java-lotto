@@ -19,7 +19,7 @@ public enum Ranking {
         this.prizeMoney = prizeMoney;
     }
 
-    public static Ranking getRanking(UserLottoNumberMatchingCount sameValueCount, boolean bonusNumber) {
+    public static Ranking findRanking(UserLottoNumberMatchingCount sameValueCount, boolean bonusNumber) {
         if (sameValueCount.getValueCount() == THIRD.matchCount && !bonusNumber) {
             return THIRD;
         }
@@ -30,6 +30,20 @@ public enum Ranking {
                 .filter(ranking -> ranking.matchCount == sameValueCount.getValueCount())
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("찾을 수 없는 matchCount 입니다,"));
+    }
+
+    public static Ranking printRanking(LottoWinningResults totalLottoRankingCount) {
+        for (Ranking ranking : Ranking.values()) {
+            return validateRanking(ranking, totalLottoRankingCount);
+        }
+    }
+
+    public static Ranking validateRanking(Ranking ranking, LottoWinningResults totalLottoRankingCount) {
+        if (Ranking.SECOND == ranking) {
+            return
+        } else if (ranking.getMatchCount() > UserLottoNumberMatchingCount.DEFAULT_VALUE) {
+            return
+        }
     }
 
     public int getMatchCount() {

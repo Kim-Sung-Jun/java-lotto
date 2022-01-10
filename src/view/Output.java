@@ -28,11 +28,12 @@ public class Output {
     }
 
     public static void validateRanking(Ranking ranking, LottoWinningResults totalLottoRankingCount) {
-        if (Ranking.SECOND == ranking) {
+        if (Ranking.SECOND == ranking) { //2등 출력
             System.out.println(ranking.getMatchCount() + "개 일치, 보너스 볼 일치 (" + ranking.getPrizeMoney() + "원) - " +
                     totalLottoRankingCount.getLottoRankingCount().getOrDefault(ranking,
                             new RankingCount(UserLottoNumberMatchingCount.DEFAULT_VALUE)).getPrizeCount() + "개");
-        } else if (ranking.getMatchCount() > UserLottoNumberMatchingCount.DEFAULT_VALUE) {
+
+        } else if (ranking.getMatchCount() > UserLottoNumberMatchingCount.DEFAULT_VALUE) { //나머지 출력
             System.out.println(ranking.getMatchCount() + "개 일치 (" + ranking.getPrizeMoney() + "원) - " +
                     totalLottoRankingCount.getLottoRankingCount().get(ranking).getPrizeCount() + "개");
         }
