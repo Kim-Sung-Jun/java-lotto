@@ -10,6 +10,10 @@ public class LottoNumbers {
 
     private List<LottoNumber> numbers;
 
+    public LottoNumbers(List<LottoNumber> numbers) {
+        this.numbers = numbers;
+    }
+
     public LottoNumbers(Money money, ManualLottoCount manualLotto, LottoNumbers lottoNumbers) {
         this.numbers = createLottoNumberByMoney(money, manualLotto, lottoNumbers);
     }

@@ -20,7 +20,7 @@ public class LottoNumberFactory {
         }
     }
 
-    public static LottoNumber createLottoRandomNumber() {                   //모두 리턴타입이 리스트인데 로또넘버객체를 리턴해주면댐
+    public static LottoNumber createLottoRandomNumber() {
         List<Integer> lottoNumbers = new ArrayList<>(LOTTO_NUMBERS_STORAGE);
         Collections.shuffle(lottoNumbers);
         lottoNumbers = new ArrayList<>(lottoNumbers.subList(
@@ -32,9 +32,9 @@ public class LottoNumberFactory {
     public static LottoNumber createInputLottoNumber(String inputLottoNumber) {
         List<Integer> inputLottoNumbers = new ArrayList<>();
         try {
-            String[] lottoWinningNumbers = inputLottoNumber.trim().replace(" ", "").split(",");
+            String[] lottoWinningNumbers = inputLottoNumber.split(",");
             for (String number : lottoWinningNumbers) {
-                inputLottoNumbers.add(Integer.parseInt(number));
+                inputLottoNumbers.add(Integer.parseInt(number.trim()));
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("당첨 번호를 잘못 입력하셨습니다.");

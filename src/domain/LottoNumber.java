@@ -11,15 +11,15 @@ public class LottoNumber {
     private final List<Integer> lottoNumbers;
 
     public LottoNumber(List<Integer> lottoNumber) {
-        validate(lottoNumber);
-        this.lottoNumbers = new ArrayList<>(lottoNumber);
+        this.lottoNumbers = new ArrayList<>(validate(lottoNumber));
     }
 
-    private void validate(List<Integer> lottoRandomNumber) {
+    private List<Integer> validate(List<Integer> lottoRandomNumber) {
         validateLength(lottoRandomNumber);
         for (Integer integer : lottoRandomNumber) {
             validateValueRange(integer);
         }
+        return lottoRandomNumber;
     }
 
     private void validateValueRange(int number) {

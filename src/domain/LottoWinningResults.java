@@ -15,7 +15,7 @@ public class LottoWinningResults {
         }
     }
 
-    public void addPrizeCount(Ranking ranking) {
+    public void addPrizeCount(Ranking ranking) { //몇등이 몇번 나왔는지
         this.lottoRankingCount.computeIfPresent(ranking, (Ranking key, RankingCount value) -> value.plus()); //타입없애도댐
     }
 
