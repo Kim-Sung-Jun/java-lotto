@@ -6,7 +6,6 @@ public class ManualLottoCount {
 
     public ManualLottoCount(Money money, String manualLottoPurchaseCount) {
         this.manualLottoPurchaseCount = validate(money, manualLottoPurchaseCount);
-
     }
 
     public LottoNumbers createManualLottoByManualLottoCount() {

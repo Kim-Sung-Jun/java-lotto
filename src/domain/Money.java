@@ -22,7 +22,7 @@ public class Money {
 
     private boolean isNumber(String amount) {
         try {
-            this.amount = Long.parseLong(amount); //생성자에서 값을 초기화주는게 원래 맞는거임
+            this.amount = Long.parseLong(amount);
             if (this.amount < LOTTO_PRICE) {
                 validateMoney();
             }

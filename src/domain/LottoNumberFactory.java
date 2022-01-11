@@ -1,7 +1,6 @@
 package domain;
 
 import view.Input;
-import view.Output;
 
 import java.util.*;
 
@@ -44,7 +43,7 @@ public class LottoNumberFactory {
 
     public static LottoNumbers createManualLottoNumberByMoney(long manualLottoPurchaseCount) {
         List<LottoNumber> lottoNumbers = new ArrayList<>();
-        Output.printInputMsg("수동으로 구매할 번호를 입력해 주세요.");
+        System.out.println("수동으로 구매할 번호를 입력해 주세요.");
         for (int i = 0; i < manualLottoPurchaseCount; i++) {
             lottoNumbers.add(createInputLottoNumber(Input.inputLottoNumber()));
         }

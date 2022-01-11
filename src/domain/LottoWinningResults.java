@@ -6,20 +6,23 @@ import java.util.Map;
 
 public class LottoWinningResults {
 
-    private final Map<Ranking, RankingCount> lottoRankingCount; //랭킹 카운트를 없애고 인티저를 받게 수정해야함
+    public static final int INCREASED_VALUE = 1;
+    public static final int DEFAULT = 0;
+
+    private final Map<Ranking, Integer> lottoRankingCount;
 
     public LottoWinningResults() {
         this.lottoRankingCount = new HashMap<>();
         for (Ranking ranking : Ranking.values()) {
-            lottoRankingCount.put(ranking, new RankingCount(UserLottoNumberMatchingCount.DEFAULT_VALUE));
+            lottoRankingCount.put(ranking, DEFAULT);
         }
     }
 
-    public void addPrizeCount(Ranking ranking) { //몇등이 몇번 나왔는지
-        this.lottoRankingCount.computeIfPresent(ranking, (Ranking key, RankingCount value) -> value.plus()); //타입없애도댐
+    public void addPrizeCount(Ranking ranking) {
+        this.lottoRankingCount.computeIfPresent(ranking, (key, value) -> value + INCREASED_VALUE);
     }
 
-    public Map<Ranking, RankingCount> getLottoRankingCount() {
+    public Map<Ranking, Integer> getLottoRankingCount() {
         return Collections.unmodifiableMap(lottoRankingCount);
     }
 

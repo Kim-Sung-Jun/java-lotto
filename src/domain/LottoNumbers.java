@@ -8,7 +8,7 @@ public class LottoNumbers {
 
     private static final int MATCH_COUNT = 5;
 
-    private List<LottoNumber> numbers;
+    private final List<LottoNumber> numbers;
 
     public LottoNumbers(List<LottoNumber> numbers) {
         this.numbers = numbers;
@@ -30,20 +30,20 @@ public class LottoNumbers {
         return lottoNumbers.numbers;
     }
 
-    public WinningLottoAmount compareResult(LottoWinningNumber lottoWinningNumber,
-                                            LottoWinningResults totalLottoRankingCount, WinningLottoAmount totalValue) {
+    public int compareResult(LottoWinningNumber lottoWinningNumber,
+                             LottoWinningResults totalLottoRankingCount) {
+        int totalAmount = 0;
         for (LottoNumber number : numbers) {
-            UserLottoNumberMatchingCount sameValueCount = new UserLottoNumberMatchingCount(); //수정해야댐
-            lottoWinningNumber.compareLottoNumbers(number, sameValueCount);
-            Ranking ranking = Ranking.findRanking(sameValueCount, isBonusNumber(lottoWinningNumber, sameValueCount));
+            int lottoNumberMatchCount = lottoWinningNumber.compareLottoNumbers(number);
+            Ranking ranking = Ranking.findRanking(lottoNumberMatchCount, isBonusNumber(lottoWinningNumber, lottoNumberMatchCount));
             totalLottoRankingCount.addPrizeCount(ranking);
-            totalValue.add(ranking);
+            totalAmount += ranking.getPrizeMoney();
         }
-        return totalValue;
+        return totalAmount;
     }
 
-    private boolean isBonusNumber(LottoWinningNumber lottoWinningNumber, UserLottoNumberMatchingCount sameValueCount) {
-        if (sameValueCount.getValueCount() == MATCH_COUNT) {
+    private boolean isBonusNumber(LottoWinningNumber lottoWinningNumber, int lottoNumberMatchCount) {
+        if (lottoNumberMatchCount == MATCH_COUNT) {
             return lottoWinningNumber.findBonusNumber();
         }
         return false;

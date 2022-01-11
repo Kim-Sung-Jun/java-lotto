@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static domain.LottoWinningResults.DEFAULT;
+import static domain.LottoWinningResults.INCREASED_VALUE;
+
 public class LottoNumber {
 
     private static final int LENGTH_DELIMITER = 6;
@@ -39,16 +42,19 @@ public class LottoNumber {
         }
     }
 
-    public void repeatLottoNumberCheck(LottoNumber lottoNumber, UserLottoNumberMatchingCount sameValueCount) {
-        for (int i = 0; i < lottoNumber.lottoNumbers.size(); i++) {
-            compareLottoNumber(lottoNumber, i, sameValueCount); //포이츠 쓸 것
+    public int repeatLottoNumberCheck(LottoNumber lottoNumber) {
+        int lottoNumberMatchCount = DEFAULT;
+        for (int i : lottoNumber.lottoNumbers) {
+            lottoNumberMatchCount = compareLottoNumber(i, lottoNumberMatchCount);
         }
+        return lottoNumberMatchCount;
     }
 
-    private void compareLottoNumber(LottoNumber lottoNumber, int i, UserLottoNumberMatchingCount sameValueCount) {
-        if (this.lottoNumbers.contains(lottoNumber.lottoNumbers.get(i))) { //좋지않은방법임
-            sameValueCount.plus();
+    private int compareLottoNumber(int i, int lottoNumberMatchCount) {
+        if (this.lottoNumbers.contains(i)) {
+            return lottoNumberMatchCount + INCREASED_VALUE;
         }
+        return lottoNumberMatchCount;
     }
 
     public boolean isBonusNumber(BonusNumber bonusNumber) {
